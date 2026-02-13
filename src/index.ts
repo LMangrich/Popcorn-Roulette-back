@@ -10,7 +10,11 @@ app.use("*", logger());
 
 app.use("*", cors({
   origin: process.env.FRONTEND_URL || "*",
+  allowMethods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
+  allowHeaders: ["Content-Type", "API-Key"],
+  exposeHeaders: ["Content-Length"],
   credentials: true,
+  maxAge: 86400,
 }));
 
 app.get("/", (c) => {
