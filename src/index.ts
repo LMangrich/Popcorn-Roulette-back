@@ -19,11 +19,20 @@ app.get("/", (c) => {
     version: "1.0.0",
     status: "healthy",
     endpoints: {
-      health: "GET /",
+      health: "GET /health",
       roulette: "GET /movies/roulette",
       listMovies: "GET /movies",
       countMovies: "GET /movies/available-movies",
     },
+  });
+});
+
+app.get("/health", (c) => {
+  return c.json({
+    status: "ok",
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+    environment: process.env.NODE_ENV || "development",
   });
 });
 
