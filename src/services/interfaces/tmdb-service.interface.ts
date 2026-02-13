@@ -13,6 +13,7 @@ export interface ITMDBService {
 
   getMovieDetails(movieId: number): Promise<TMDBMovieDetails>;
   getTitlePtBr(details: TMDBMovieDetails): string | null;
+  getSynopsisPtBr(details: TMDBMovieDetails): string | null;
   getDirectors(details: TMDBMovieDetails): string[];
   getCast(details: TMDBMovieDetails): Array<{ name: string; role: string }>;
   getCountries(details: TMDBMovieDetails): string[];

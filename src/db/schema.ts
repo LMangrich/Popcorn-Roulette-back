@@ -56,6 +56,7 @@ export const movies = pgTable("movies", {
   
   posterUrl: text("poster_url"),
   synopsis: text("synopsis"),
+  synopsisPtBr: text("synopsis_pt_br"),
 });
 
 export type Movie = typeof movies.$inferSelect;

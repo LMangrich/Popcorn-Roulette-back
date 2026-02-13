@@ -39,6 +39,7 @@ async function importMovie(movieId: number): Promise<boolean> {
     const posterUrl = tmdbService.getPosterUrl(details.poster_path);
     const year = tmdbService.getYear(details.release_date);
     const titlePtBr = tmdbService.getTitlePtBr(details);
+    const synopsisPtBr = tmdbService.getSynopsisPtBr(details);
 
     if (countries.length === 0) {
       console.log(`Skipping ${details.title} - no mapped countries`);
@@ -60,6 +61,7 @@ async function importMovie(movieId: number): Promise<boolean> {
       whereToWatch,
       posterUrl,
       synopsis: details.overview,
+      synopsisPtBr,
     });
 
     console.log(`Imported: ${details.title} (${year}) - ${countries.join(", ")} - ${ageRating}`);

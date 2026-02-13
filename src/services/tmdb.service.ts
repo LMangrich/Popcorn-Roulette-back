@@ -74,6 +74,17 @@ export class TMDBService implements ITMDBService {
     return ptBrTranslation?.data?.title || null;
   }
 
+  getSynopsisPtBr(details: TMDBMovieDetails): string | null {
+    const translations = (details as any).translations?.translations;
+    if (!translations) return null;
+
+    const ptBrTranslation = translations.find(
+      (t: any) => t.iso_3166_1 === "BR" && t.iso_639_1 === "pt"
+    );
+
+    return ptBrTranslation?.data?.overview || null;
+  }
+
   getDirectors(details: TMDBMovieDetails): string[] {
     return details.credits.crew
       .filter((member) => member.job === "Director")
