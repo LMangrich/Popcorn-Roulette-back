@@ -1,0 +1,27 @@
+{
+  "name": "popcorn-roulette-back",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "build": "bun build src/index.ts --outdir ./dist --target bun",
+    "start": "bun run dist/index.js",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "bun run src/scripts/migrate.ts",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "scrape": "bun run src/scripts/scraper.ts"
+  },
+  "dependencies": {
+    "hono": "^4.11.4",
+    "drizzle-orm": "^0.45.1",
+    "postgres": "^3.4.8",
+    "zod": "^4.3.5",
+    "@hono/zod-validator": "^0.2.1",
+    "dotenv": "^17.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.30",
+    "drizzle-kit": "^0.31.8",
+    "typescript": "^5.8.3"
+  }
+}

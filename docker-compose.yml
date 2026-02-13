@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: popcorn-roulette-db
+    environment:
+      POSTGRES_USER: popcorn_admin
+      POSTGRES_PASSWORD: popcorn123
+      POSTGRES_DB: popcorn_roulette_db
+    ports:
+      - "5434:5432"
+    volumes:
+      - popcorn_db_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  popcorn_db_data:
